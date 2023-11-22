@@ -1,0 +1,24 @@
+targets:
+  $default:
+    builders:
+      freezed:
+        generate_for:
+          include:
+            - "lib/core/shared/data/http/result.dart"
+            - "lib/core/shared/domain/failures/**.dart"
+            - "lib/core/shared/domain/helpers/either.dart"
+            - "lib/core/shared/domain/helpers/paginate.dart"
+            - "lib/core/shared/presentation/providers/**provider.dart"
+            - "lib/features/**/presentation/providers/**_provider.dart"
+            - "lib/features/**/domain/entities/**.dart"
+      json_serializable:
+        options:
+          explicit_to_json: true
+        generate_for:
+          include:
+            - "lib/features/**/domain/entities/**.dart"
+            - "lib/core/shared/domain/helpers/paginate.dart"
+      source_gen|combining_builder:
+        options:
+          ignore_for_file:
+            - "type=lint"
